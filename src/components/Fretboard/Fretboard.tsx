@@ -10,6 +10,7 @@ import { ReactComponent as InfoIcon } from '../../assets/icons/circle-info-solid
 import NoteDetector from "../NoteDetector/NoteDetector";
 import {Col, Container, Row} from "react-bootstrap";
 import InfoModal from "../InfoModal/InfoModal";
+import {getItem, setItem} from "../../localStorage";
 
 
 const Fretboard: React.FC = () => {
@@ -19,7 +20,7 @@ const Fretboard: React.FC = () => {
     const [showConfigurator, setShowConfigurator] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
-    const hasVisited = Number(localStorage?.getItem('hasVisited') || 0);
+    const hasVisited = Number(getItem('hasVisited') || 0);
     const [infoModalShow, setInfoModalShow] = useState(!hasVisited);
 
     const note = useAppSelector((state: RootState) => state.noteDetector.note);
@@ -40,7 +41,7 @@ const Fretboard: React.FC = () => {
     };
 
     const handleInfoModalShow = () => {
-        if (!hasVisited) localStorage?.setItem('hasVisited', '1');
+        if (!hasVisited) setItem('hasVisited', '1');
         setInfoModalShow(!infoModalShow);
     }
 
@@ -79,7 +80,7 @@ const Fretboard: React.FC = () => {
             window.removeEventListener('resize', updateFretboard);
             document.removeEventListener('fullscreenchange', updateFretboard);
         }
-    }, [note, frets, isLeftHanded]);
+    }, [note, frets, isLeftHanded, tuning]);
 
     return (
         <Container fluid className="fretboard-container">

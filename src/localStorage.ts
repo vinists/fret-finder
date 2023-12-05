@@ -19,3 +19,14 @@ export const saveState = <T>(state: T, name: string): void => {
     }
 }
 
+export const getItem = (key: string): string | null => {
+    try {
+        return localStorage?.getItem(key);
+    } catch(e) { return null }
+}
+
+export const setItem = (key: string, value: string): void => {
+    try {
+        localStorage?.setItem(key, value);
+    } catch(e) { }
+}
