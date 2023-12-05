@@ -1,0 +1,76 @@
+.icon {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 5px;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+    z-index: 20;
+
+    &:hover {
+        opacity: 1; // More visible on hover
+    }
+
+    svg {
+        fill: white;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.info-toggle {
+    right: 75px;
+}
+
+.fullscreen-toggle{
+    right: 40px;
+}
+
+.configurator-toggle {
+    right: 5px;
+}
+
+.fretboard-configurator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0; /* Start with no width */
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.5s ease-in-out; /* Animate the width */
+    z-index: 10;
+    opacity: .8;
+    padding: 5px;
+    /* Other styles */
+    display: none;
+}
+
+.fretboard-configurator.open {
+    width: 500px;
+    display: block; /* The full width when open */
+}
+
+.canvas-container {
+    width: 100%;
+    //max-width: 1366px;
+    max-height: 600px;
+    height: 100vh;
+
+    //min-height: 400px;
+}
+
+/* Set the canvas to use 100% of the .canvas-container's height */
+.fretboard-canvas {
+    width: 100%;
+    height: 100%; /* Now it uses the height of its parent .canvas-container */
+    display: block; /* Removes the inline element default space */
+}
+
+/* Adjust the height of the container itself */
+@media (max-width: 768px) {
+    .canvas-container {
+        height: 100vh; /* This will be the new height for mobile devices */
+    }
+}
+

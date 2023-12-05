@@ -1,0 +1,16 @@
+.game-container {
+  background: #545454
+}
+
+
+@media (min-width: 1000px){
+  .fw-bold {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-height: 420px){
+  .game-container{
+    font-size: 75%;
+  }
+}
