@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { RootState } from '../../app/store';
 import {Note} from "../../types";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
+import {useAppSelector} from "../../app/hooks";
 import {TUNINGS} from "../../constants";
 import './NoteDisplay.scss';
 
@@ -71,7 +70,6 @@ const NoteDisplay: React.FC = () => {
         if (isRunning && countdownState){
             let timer: NodeJS.Timer;
             if (countdown > 0) {
-                console.log(countdown);
                 timer = setInterval(() => setCountdown(countdown - 1), 1000);
             } else {
                 setScore(0);

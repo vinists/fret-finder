@@ -9,7 +9,7 @@
     z-index: 20;
 
     &:hover {
-        opacity: 1; // More visible on hover
+        opacity: 1;
     }
 
     svg {
@@ -35,42 +35,36 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 0; /* Start with no width */
+    width: 0;
     height: 100%;
     overflow: hidden;
-    transition: width 0.5s ease-in-out; /* Animate the width */
+    transition: width 0.5s ease-in-out;
     z-index: 10;
     opacity: .8;
     padding: 5px;
-    /* Other styles */
     display: none;
 }
 
 .fretboard-configurator.open {
     width: 500px;
-    display: block; /* The full width when open */
+    display: block;
 }
 
 .canvas-container {
     width: 100%;
-    //max-width: 1366px;
     max-height: 600px;
     height: 100vh;
-
-    //min-height: 400px;
 }
 
-/* Set the canvas to use 100% of the .canvas-container's height */
 .fretboard-canvas {
     width: 100%;
-    height: 100%; /* Now it uses the height of its parent .canvas-container */
-    display: block; /* Removes the inline element default space */
+    height: 100%;
+    display: block;
 }
 
-/* Adjust the height of the container itself */
 @media (max-width: 768px) {
     .canvas-container {
-        height: 100vh; /* This will be the new height for mobile devices */
+        height: 100vh;
     }
 }
 
